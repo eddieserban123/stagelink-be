@@ -1,0 +1,15 @@
+-------------------------------------------------------------------------------
+Test set: com.stagelink.auth.AuthControllerIntegrationTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 11.48 s <<< FAILURE! -- in com.stagelink.auth.AuthControllerIntegrationTest
+com.stagelink.auth.AuthControllerIntegrationTest.shouldRegisterAndLoginPerformer -- Time elapsed: 1.260 s <<< ERROR!
+com.fasterxml.jackson.databind.exc.MismatchedInputException: 
+No content to map due to end-of-input
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1]
+	at com.fasterxml.jackson.databind.exc.MismatchedInputException.from(MismatchedInputException.java:72)
+	at com.fasterxml.jackson.databind.ObjectMapper._initForReading(ObjectMapper.java:5129)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:5028)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3954)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3937)
+	at com.stagelink.auth.AuthControllerIntegrationTest.shouldRegisterAndLoginPerformer(AuthControllerIntegrationTest.java:70)
+

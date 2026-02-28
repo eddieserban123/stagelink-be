@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: stagelink-be
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/stagelink}
+    username: ${DB_USERNAME:stagelink}
+    password: ${DB_PASSWORD:stagelink}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      pool-name: stagelink-pool
+      maximum-pool-size: ${DB_POOL_MAX_SIZE:15}
+      minimum-idle: ${DB_POOL_MIN_IDLE:5}
+      idle-timeout: 300000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc.time_zone: UTC
+
+  flyway:
+    enabled: false
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+
+server:
+  port: ${SERVER_PORT:8080}
+
+app:
+  flyway:
+    clean-on-start: ${FLYWAY_CLEAN_ON_START:true}
+  security:
+    jwt:
+      secret: ${JWT_SECRET:replace-this-with-32-byte-minimum-secret-key-1234567890}
+      expiration-seconds: ${JWT_EXPIRATION_SECONDS:3600}
